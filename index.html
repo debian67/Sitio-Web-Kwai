@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PanchitoPlus · Tienda kawaii de cases, Hello Kitty y anime</title>
+  <meta name="description" content="Cases para iPhone, accesorios, Hello Kitty, anime, peluches y regalos kawaii. Consulta y compra por WhatsApp." />
+  <meta name="theme-color" content="#ffdde6" />
+
+  <!-- Tipografías gratuitas. Si no hay internet, el sitio usa fuentes del sistema. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <!-- ============ BARRA DE ANUNCIO ============ -->
+  <div class="announce" role="note">
+    <p data-store="announcement"></p>
+  </div>
+
+  <!-- ============ ENCABEZADO ============ -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-row">
+
+      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+
+      <a class="brand" href="#/inicio" data-route="inicio" aria-label="PanchitoPlus, ir al inicio">
+        <img class="brand-logo" src="assets/images/logoPanchitoPlus.png" alt="" width="320" height="80" />
+        </span>
+      </a>
+
+      <form class="search" id="searchForm" role="search" autocomplete="off">
+        <label for="searchInput" class="sr-only">Buscar productos</label>
+        <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input id="searchInput" type="search" placeholder="Busca cases, Hello Kitty, anime…" />
+        <button type="button" class="search-clear" id="searchClear" aria-label="Borrar búsqueda" hidden>×</button>
+      </form>
+
+      <button class="icon-btn cart-btn" id="cartBtn" aria-label="Abrir carrito">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.2a2 2 0 0 0 2-1.5L20 8H6.2"/><circle cx="10" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg>
+        <span class="cart-count" id="cartCount" aria-live="polite">0</span>
+      </button>
+    </div>
+
+    <!-- Las pestañas se generan desde js/products.js (CATEGORIES). -->
+    <nav class="main-nav" id="mainNav" aria-label="Categorías principales">
+      <ul class="container nav-list" id="navList"></ul>
+    </nav>
+  </header>
+
+  <div class="nav-backdrop" id="navBackdrop" hidden></div>
+
+  <!-- ============ CONTENIDO ============ -->
+  <main id="main" tabindex="-1">
+
+    <!-- ---------- VISTA: INICIO ---------- -->
+    <div id="viewHome" class="view" data-view="home">
+
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">Nueva temporada · detalles que enamoran</p>
+            <h1>Lo más tierno para tu día <span class="accent">a día</span></h1>
+            <p class="lead">Cases para iPhone, Hello Kitty, anime, peluches y regalitos que sacan sonrisas. Elige, consulta y compra por WhatsApp.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#/cases" data-route="cases">Ver cases para iPhone</a>
+              <a class="btn btn-ghost" href="#/novedades" data-route="novedades">Descubrir novedades</a>
+            </div>
+            <ul class="trust">
+              <li>Atención por WhatsApp</li>
+              <li>Productos seleccionados</li>
+              <li>Regalos listos para dar</li>
+            </ul>
+          </div>
+
+          <div class="hero-visual reveal" aria-hidden="true">
+            <div class="hero-blob"></div>
+            <img src="assets/images/hero.svg" alt="" width="520" height="520" />
+          </div>
+        </div>
+      </section>
+
+      <section class="section container reveal" aria-labelledby="catTitle">
+        <header class="section-head">
+          <h2 id="catTitle">Explora por categoría</h2>
+          <p>Encuentra rápido lo que buscas.</p>
+        </header>
+        <div class="category-grid" id="categoryGrid"></div>
+      </section>
+
+      <section class="section container reveal" aria-labelledby="newTitle">
+        <header class="section-head">
+          <h2 id="newTitle">Recién llegados</h2>
+          <a class="link-more" href="#/novedades" data-route="novedades">Ver todo →</a>
+        </header>
+        <div class="product-grid" id="gridNew"></div>
+      </section>
+
+      <section class="section container reveal" aria-labelledby="featTitle">
+        <header class="section-head">
+          <h2 id="featTitle">Productos destacados</h2>
+          <p>Nuestra selección favorita.</p>
+        </header>
+        <div class="product-grid" id="gridFeatured"></div>
+      </section>
+
+      <section class="promo reveal" aria-labelledby="promoTitle">
+        <div class="container">
+          <header class="section-head">
+            <h2 id="promoTitle">Ofertas y promociones</h2>
+            <a class="link-more" href="#/ofertas" data-route="ofertas">Ver todas →</a>
+          </header>
+          <div class="product-grid" id="gridOffers"></div>
+        </div>
+      </section>
+
+      <section class="section container reveal" aria-labelledby="bestTitle">
+        <header class="section-head">
+          <h2 id="bestTitle">Los más vendidos</h2>
+          <p>Los que más se llevan nuestros clientes.</p>
+        </header>
+        <div class="product-grid" id="gridBest"></div>
+      </section>
+
+      <section class="section container reveal" aria-labelledby="upTitle">
+        <header class="section-head">
+          <h2 id="upTitle">Próximos ingresos</h2>
+          <p>Anótalo en tu lista: pronto llegan estas colecciones.</p>
+        </header>
+        <div class="upcoming-grid" id="upcomingList"></div>
+      </section>
+    </div>
+
+    <!-- ---------- VISTA: CATÁLOGO (la reutilizan todas las pestañas y el buscador) ---------- -->
+    <div id="viewCatalog" class="view" data-view="catalog" hidden>
+      <section class="catalog-head">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Ruta">
+            <a href="#/inicio" data-route="inicio">Inicio</a>
+            <span aria-hidden="true">›</span>
+            <span id="breadcrumbCurrent">Catálogo</span>
+          </nav>
+          <h1 id="catalogTitle">Catálogo</h1>
+          <p id="catalogSubtitle" class="lead"></p>
+        </div>
+      </section>
+
+      <div class="container catalog-layout">
+        <button class="btn btn-ghost filters-toggle" id="filtersToggle" aria-expanded="false" aria-controls="filters">Filtros</button>
+
+        <!-- Los filtros se construyen desde JS según la categoría -->
+        <aside class="filters" id="filters" aria-label="Filtros del catálogo"></aside>
+
+        <section class="catalog-main" aria-live="polite">
+          <div class="toolbar">
+            <p class="result-count" id="resultCount"></p>
+            <label class="sort">
+              <span>Ordenar por</span>
+              <select id="sortSelect">
+                <option value="relevance">Destacados</option>
+                <option value="newest">Más nuevos</option>
+                <option value="price-asc">Precio: menor a mayor</option>
+                <option value="price-desc">Precio: mayor a menor</option>
+                <option value="name">Nombre (A–Z)</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="active-filters" id="activeFilters"></div>
+
+          <div class="product-grid" id="catalogGrid"></div>
+
+          <!-- Estado vacío -->
+          <div class="empty" id="emptyState" hidden>
+            <svg viewBox="0 0 64 64" width="84" height="84" aria-hidden="true">
+              <ellipse cx="32" cy="36" rx="22" ry="18" fill="#ffe3ea" stroke="#e8707f" stroke-width="2"/>
+              <circle cx="24" cy="34" r="2.4" fill="#4a3f46"/><circle cx="40" cy="34" r="2.4" fill="#4a3f46"/>
+              <path d="M27 44c3-3 7-3 10 0" fill="none" stroke="#4a3f46" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <h3>No encontramos productos</h3>
+            <p>Prueba con otros filtros o escríbenos por WhatsApp y te ayudamos a encontrarlo.</p>
+            <div class="empty-actions">
+              <button class="btn btn-primary" id="clearFilters" type="button">Limpiar filtros</button>
+              <a class="btn btn-ghost" id="emptyWhatsapp" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- ============ PIE DE PÁGINA ============ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="footer-brand">PanchitoPlus</p>
+        <p class="muted">Tu boutique kawaii: cases, Hello Kitty, anime y regalos con mucho cariño.</p>
+        <ul class="social" id="socialLinks" aria-label="Redes sociales"></ul>
+      </div>
+
+      <div>
+        <h3>Compra</h3>
+        <ul class="footer-links">
+          <li><a href="#/cases" data-route="cases">Cases para iPhone</a></li>
+          <li><a href="#/hello-kitty" data-route="hello-kitty">Hello Kitty</a></li>
+          <li><a href="#/anime" data-route="anime">Anime</a></li>
+          <li><a href="#/ofertas" data-route="ofertas">Ofertas</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Contacto</h3>
+        <ul class="footer-links">
+          <li>WhatsApp: <a id="footerWhatsapp" target="_blank" rel="noopener" data-store="whatsappDisplay"></a></li>
+          <li data-store="email"></li>
+          <li data-store="address"></li>
+          <li data-store="hours"></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>© <span id="year"></span> PanchitoPlus. Todos los derechos reservados.</p>
+      <p class="muted small">PanchitoPlus es una marca original y no está afiliada a Sanrio, Miniso ni a otras marcas mencionadas. Los nombres de personajes pertenecen a sus respectivos titulares.</p>
+    </div>
+  </footer>
+
+  <!-- ============ MODAL: DETALLE DE PRODUCTO ============ -->
+  <div class="modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel">
+      <button class="icon-btn modal-close" data-close aria-label="Cerrar detalle" type="button">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- ============ CARRITO (panel lateral) ============ -->
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+  <aside class="drawer" id="cartDrawer" aria-label="Carrito de compras" aria-hidden="true">
+    <header class="drawer-head">
+      <h2>Tu carrito</h2>
+      <button class="icon-btn" id="cartClose" aria-label="Cerrar carrito" type="button">×</button>
+    </header>
+
+    <div class="drawer-body" id="cartItems"></div>
+
+    <footer class="drawer-foot">
+      <div class="cart-total"><span>Total</span><strong id="cartTotal">S/ 0.00</strong></div>
+      <a class="btn btn-whatsapp btn-block" id="cartCheckout" target="_blank" rel="noopener" aria-disabled="true">Enviar pedido por WhatsApp</a>
+      <button class="btn btn-ghost btn-block" id="cartClear" type="button">Vaciar carrito</button>
+      <p class="muted small">El pago y la entrega se coordinan por WhatsApp. Aún no hay pasarela de pago en línea.</p>
+    </footer>
+  </aside>
+
+  <!-- Avisos breves -->
+  <div class="toast-zone" id="toastZone" aria-live="polite" aria-atomic="true"></div>
+
+  <noscript>
+    <p style="padding:1rem;text-align:center">Esta tienda necesita JavaScript para mostrar el catálogo.</p>
+  </noscript>
+
+  <!-- Orden importante: primero los datos, luego la lógica -->
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

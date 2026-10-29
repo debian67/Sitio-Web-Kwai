@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff7f0"/><stop offset="1" stop-color="#ffe9e0"/></linearGradient></defs>
+<rect width="400" height="400" fill="url(#g)"/>
+<circle cx="70" cy="70" r="26" fill="#fff" opacity=".55"/><circle cx="345" cy="95" r="14" fill="#fff" opacity=".55"/><circle cx="330" cy="320" r="30" fill="#fff" opacity=".4"/>
+<g transform="rotate(-8 200 200)"><circle cx="150" cy="170" r="60" fill="#fff" stroke="#ffd3df" stroke-width="8"/><g transform="translate(150 172) scale(0.9)"><circle cx="-18" cy="0" r="3.4" fill="#4a3f46"/><circle cx="18" cy="0" r="3.4" fill="#4a3f46"/>
+<path d="M-6 6q6 6 12 0" fill="none" stroke="#4a3f46" stroke-width="3" stroke-linecap="round"/>
+<circle cx="-30" cy="8" r="6" fill="#ff9fb2" opacity=".55"/><circle cx="30" cy="8" r="6" fill="#ff9fb2" opacity=".55"/></g></g>
+<g transform="rotate(10 200 200)"><path d="M260 115l22 45 50 7-36 35 9 50-45-24-45 24 9-50-36-35 50-7z" fill="#fff6c9" stroke="#fff" stroke-width="8"/></g>
+<g transform="rotate(-4 200 200)"><path d="M150 290c-30-25-45-45-30-65 13-17 33-9 30 8 3-17 23-25 36-8 15 20 0 40-36 65z" fill="#ffb6c8" stroke="#fff" stroke-width="7"/></g><text x="200" y="388" text-anchor="middle" font-family="Nunito,Arial,sans-serif" font-size="11" fill="#b9a3ab">imagen de ejemplo · reemplazar</text></svg>
